@@ -5,10 +5,27 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true, 
+      required: true, 
     },
-    password: String,
+    password: {
+      type: String,
+      required: true, 
+    }, 
+    email: {
+      type: String,
+      unique: true, 
+      required: true,
+    }, 
+    //* POSIBLE IMPLEMENTACIÓN DE ADMINISTRADOR (BONUS)
+    role: {
+      type:String,
+      enum : ["Admin", "User"], 
+      default: "User"
+    }
   },
+
+
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
