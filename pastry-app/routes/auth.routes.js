@@ -19,17 +19,17 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
-  if (!username) {
+  if (!username || !email || !password) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your username.",
+      errorMessage: "Debes rellenar todos los campos!.",
     });
   }
 
   if (password.length < 8) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Tu contraseña tiene que ser de al menos 8 caracteres.",
     });
   }
 
@@ -51,7 +51,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "Username already taken." });
+        .render("auth.signup", { errorMessage: "El nombre de usuario ya está en uso." });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -79,7 +79,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
             errorMessage:
-              "Username need to be unique. The username you chose is already in use.",
+              "El nombre de usuario debe ser único. El que has escogido ya está en uso.",
           });
         }
         return res
@@ -98,7 +98,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   if (!username) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Please provide your username.",
+      errorMessage: "Introduce tu nombre de usuario.",
     });
   }
 

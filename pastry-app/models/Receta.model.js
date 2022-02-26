@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model} = require("mongoose");
 
 const recetaSchema = new Schema({
   nombre: {
@@ -13,7 +13,7 @@ const recetaSchema = new Schema({
 
   tipo: {
     type: String,
-    enum: ["Dulces", "Sin gluten", "Saludable"],
+    enum: ["Dulce", "Sin gluten", "Saludable"],
   },
 
   duracion: {
@@ -32,14 +32,12 @@ const recetaSchema = new Schema({
   },
 
   autor: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "User",
   },
 
   pasos: [
-    {
-      type: String,
-    },
+    {},
   ],
 
   ingredientes: [
@@ -47,6 +45,6 @@ const recetaSchema = new Schema({
   ],
 });
 
-const RecetaModel = model("receta", recetaSchema); 
+const RecetaModel = model("Receta", recetaSchema); 
 
 module.exports = RecetaModel
