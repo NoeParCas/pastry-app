@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  padding: 0px; 
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,5 +9,68 @@ a {
 }
 
 h1 {
-  color: 15px;
+  font-size: 5rem;
+}
+
+#nav-bar{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+#nav-bar a {
+  margin-top: 50px;
+  margin-bottom: -50px;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* HOME */
+
+#home-container {
+  background-image: url(../images/background-img.jpeg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.title {
+  font-size: 5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.title h1{
+  margin-top:300px;
+}
+
+/* LOGIN */
+#login-container {
+  margin: 300px;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-label input{
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+/* SIGNUP */
+
+#signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 200px;
+  padding: 100px;
+}
+
+.signup-label input{
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  border-radius: 5px;
 }
