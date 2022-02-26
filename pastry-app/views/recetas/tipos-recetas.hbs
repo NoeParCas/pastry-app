@@ -1,0 +1,13 @@
+<div>
+  <div><h2>Recetas sin {{! titulo de receta.tipo }}</h2></div>
+  {{#each}}
+  <div> 
+    <a href="/recetario/lista-receta/{{!receta_id}}">
+      <button>
+        <h3>{{!receta.nombre}}</h3>
+        <img src="{{!receta.imagen}}" alt="Receta dulce" />
+      </button>
+    </a>
+  </div>
+  {{/each}}
+  

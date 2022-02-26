@@ -1,6 +1,39 @@
-<h2>Nombre de la receta</h2>
+<div>
+    <h2>{{!Nombre de la base de datos}}</h2>
+    <img src="{{!imagen de la base de datos}}" alt="">
+</div>
+<div>
+    <p>duracion y dificultad{{!-- info de dificultad --}}</p>
+    <p>fecha de creación {{!-- info de la fecha --}}</p>
+    
+        <div>
+            <h4>Pasos</h4>
+            <ul>
+                {{#each}}
+                {{!-- info de los pasos --}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+<div>
+    <h4>Ingredientes</h4>
+    <ul>
+        {{#each}} 
+        {{!-- info de los ingredientes --}}
+        {{/each}}
+    </ul>
 
-<img src="" alt="">
-<p>duracion y dificultad</p>
-<p>fecha de creación</p>
-<p></p>
+{{! BOUNUS=> COMENTARIOS 
+
+    <div>
+        <h6>Usuario</h6>
+        <div>
+            <p>{comentario}</p>
+        </div>
+    </div>
+}}
+
+</div>
+
+
+
