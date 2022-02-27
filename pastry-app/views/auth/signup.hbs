@@ -3,23 +3,29 @@
 
 <form action="/auth/signup" method="POST">
 
-   <label class="signup-label">Username:
-   <input type="text" name="username">
+   <label class="signup-label">
+   <input type="text" name="username" placeholder="Username">
    </label>
-
+      {{#if errorMessage}}
+         {{errorMessage}}
+      {{/if}}
 <br>
-    <label class="signup-label" for="email">Email:
-    <input type="email" name="email" >
+    <label class="signup-label" for="email">
+    <input type="email" name="email" placeholder="Email">
     </label>
+      {{#if errorMessage}}
+         {{errorMessage}}
+      {{/if}}
 <br>
-  <label class="signup-label" for="password">Contraseña:
-    <input type="password" name="password" >
+  <label class="signup-label" for="password">
+    <input type="password" name="password" placeholder="Contraseña">
+      {{#if errorMessage}}
+         {{errorMessage}}
+      {{/if}}
 </label>
 <br>
     <button type="submit">Registro</button>
 </form>
 
-{{#if errorMessage}}
-   {{errorMessage}}
-{{/if}}
+
    </div>

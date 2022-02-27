@@ -1,3 +1,27 @@
-<h2>Este es el perfil de usuario</h2>
 
-<h3>Hola usuario</h3>
+<div>
+<h2>Este es el perfil de usuario</h2>
+  <div id="profile">
+    <div>
+        {{!user.imagen}}
+        {{!user.name}}
+    </div>
+    <div>
+       <a href="./comentarios/"><button> Comentarios</button></a> 
+       <a href="./comentarios/"><button> Crea tu propia receta</button></a> 
+    </div>
+  </div>  
+  <div id="recetas-profile">
+      {{!#each recetas_id}}
+        <div>
+            {{!recetas.nombre}}
+            {{!recetas.img}}
+                <div>
+                    <button>Actualizar</button>
+                    <button>Eliminar</button>
+                </div>
+        </div>
+      {{!/each}}
+  </div>
+</div>
+
