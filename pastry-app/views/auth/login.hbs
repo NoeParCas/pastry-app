@@ -1,21 +1,24 @@
 <div id="login-container">
+
    <div>
       <form action="/auth/login" method="POST">
 
          <label class="login-label">
             <input type="text" name="username" placeholder="Username">
          </label>
+               {{#if errorMessage}}
+                <p> {{errorMessage}}</p> 
+               {{/if}}
          <br>
          <label class="login-label"> 
             <input type="password" name="password" placeholder="Password">
          </label>
+            {{#if errorMessage}}
+                <p> {{errorMessage}}</p> 
+            {{/if}}
       <br>
          <button type="submit">Submit</button>
       </form>
    </div>
 
 </div>
-
-{{#if errorMessage}}
-   {{errorMessage}}
-{{/if}}

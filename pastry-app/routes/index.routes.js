@@ -6,6 +6,9 @@ router.get("/", (req, res, next) => {
   res.render("home");
 });
 
+router.get ("/recetario", (req,res,next)=>{
+  res.render("recetas/recetario.hbs")
+})
 const authRoutes = require("./auth.routes")
 router.use("/auth", authRoutes);
 

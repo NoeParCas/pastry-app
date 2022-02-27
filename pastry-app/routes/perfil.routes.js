@@ -3,7 +3,9 @@ const isLoggedIn = require("../middleware/isLoggedIn")
 const User =require("../models/User.model")
 
  router.get('/',isLoggedIn,(req, res, next) =>{ 
-        res.render("perfil/perfil-usuario.hbs")
+       console.log( "usuario autorizado") 
+       res.render("perfil/perfil-usuario.hbs")
+
  })
 
 
