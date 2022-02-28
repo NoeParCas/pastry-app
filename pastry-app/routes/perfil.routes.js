@@ -16,12 +16,13 @@ const uploader =require("../middleware/uploader")
 
  router.post ("/crear-receta", isLoggedIn, uploader.single("receta-img"), (req, res, next) => {
      const {nombre,creacion, tipo, dificultad, duracion, autor} = req.body
-     console.log(req.body)
+     // console.log(req.body)
      // console.log(req.file, "HOLA")
-   
+     //!APUNTAR RELACION AUTOR CON ID DE USUARIO
      RecetaModel.create({nombre,creacion, duracion, imagen: req.file.path , tipo, dificultad, autor})
 
      .then((crearReceta) =>{
+          // console.log(crearReceta, "HOLA")
      res.redirect(`/perfil/${crearReceta._id}/actualizar`)
      })
      .catch((err) => {
@@ -35,19 +36,31 @@ const uploader =require("../middleware/uploader")
 
       RecetaModel.findById(id)
       .then((recetaActualizar) => {
-           res.render("recetas/actualizar-receta.hbs", {recetaActualizar})
-           RecetaModel.findByIdAndUpdate(id),{
-               ingredientes
-          }
-      })
-      .then((actualizarIngredientes) =>{
-           res.render("recetas/actualizar-receta.hbs", {actualizarIngredientes}) 
+          res.render("recetas/actualizar-receta.hbs", {recetaActualizar})
+           
       })
       .catch((err) => {
            next(err);
       })
       
  }) 
+
+ router.post ("/:id/actualizar",isLoggedIn, (req, res, next) =>{
+     const {id} = req.params
+     const {ingredientes} = req.body
+
+     // console.log("CHOCOLATE",req.body)
+     RecetaModel.findByIdAndUpdate(id,{
+          $push: {ingredientes},
+     })
+     .then((actualizarReceta) =>{
+          res.redirect(`/perfil/${actualizarReceta._id}/actualizar` )
+          
+     })
+     .catch((err) => {
+          next(err);
+     })
+ })
 
 
 

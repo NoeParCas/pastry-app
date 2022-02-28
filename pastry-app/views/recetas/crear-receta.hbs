@@ -20,6 +20,13 @@
         <input type="text" name="dificultad">
         </label>
 
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" multiple>
+        {{#each crearReceta}}
+        <option value={{this.tipo}}>{{this.tipo}}</option>
+        {{/each}}
+        </select>
+
         <button>Crear Receta</button>
         </form>
 

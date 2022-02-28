@@ -10,7 +10,7 @@
 
 
 <div>
-    <form action="/perfil/${recetaActualizar._id}/actualizar" method="POST">
+    <form action="/perfil/{{recetaActualizar._id}}/actualizar" method="POST">
     <label for="ingredientes">Ingredientes</label>
     <input name="ingredientes" type="text"> 
     <button>Añadir</button>
@@ -20,9 +20,9 @@
 <div>
         <h4>Ingredientes</h4>
             <ul>
-                {{#each actualizarIngredientes}}
+                {{#each recetaActualizar.ingredientes}}
                 <li>
-                {{this.actualizarIngredientes}}
+                {{this}}
                 </li>
                 {{/each}}
             </ul>

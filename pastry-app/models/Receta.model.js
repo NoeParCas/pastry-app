@@ -37,12 +37,10 @@ const recetaSchema = new Schema({
   },
 
   pasos: [
-    {},
+    {numero: {type: Number}, descripcion:{type: String}},
   ],
 
-  ingredientes: [
-     String
-  ],
+  ingredientes: [{type: String}],
 });
 
 const RecetaModel = model("Receta", recetaSchema); 
