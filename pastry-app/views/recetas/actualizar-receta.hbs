@@ -1,1 +1,30 @@
-<h1>ACTUALIZA TU RECETA</h1>
+<h3>Completa tu receta añadiendo los ingredientes!</h3>
+
+<div>
+    <h2>{{recetaActualizar.nombre}}</h2>
+</div>
+    <img src="{{recetaActualizar.imagen}}" alt="PATATA" >
+<div>
+    <p>Dificultad {{recetaActualizar.dificultad}}</p>
+    <p>Duración {{recetaActualizar.duracion}} minutos</p>
+
+
+<div>
+    <form action="/perfil/${recetaActualizar._id}/actualizar" method="POST">
+    <label for="ingredientes">Ingredientes</label>
+    <input name="ingredientes" type="text"> 
+    <button>Añadir</button>
+    </form>
+</div>
+
+<div>
+        <h4>Ingredientes</h4>
+            <ul>
+                {{#each actualizarIngredientes}}
+                <li>
+                {{this.actualizarIngredientes}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>

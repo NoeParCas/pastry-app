@@ -69,6 +69,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
+        req.app.locals.isLoggedIn =true;
         res.redirect("/perfil");
       })
       .catch((error) => {
@@ -129,6 +130,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           });
         }
         req.session.user = user;
+        req.app.locals.isLoggedIn =true;
         console.log("HOLA")
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         
@@ -149,8 +151,9 @@ router.get("/logout", isLoggedIn, (req, res) => {
     if (err) {
       return res
         .status(500)
-        .render("auth/logout", { errorMessage: err.message });
+        .render("auth/logout", {errorMessage: err.message });
     }
+    req.app.locals.isLoggedIn =false;
     res.redirect("/");
   });
 });

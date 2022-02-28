@@ -13,9 +13,13 @@ h1 {
   font-size: 5rem;
 }
 
-/* li{
+img{
+  height: 300px
+}
+
+li{
   list-style: none;
-} */
+}
 
 #nav-bar{
   display: flex;

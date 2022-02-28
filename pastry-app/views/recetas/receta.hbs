@@ -8,13 +8,13 @@
     
         <div>
             <h4>Pasos</h4>
-            <ol>
+            <ul>
                 {{#each recetaDetalle.pasos}}
                 <li>
-                {{this.Paso}}
+                {{this.numero}}: {{this.descripcion}}
                 </li>
                 {{/each}}
-            </ol>
+            </ul>
         </div>
     </div>
 <div>

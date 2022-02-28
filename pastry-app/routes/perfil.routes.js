@@ -2,6 +2,7 @@ const router = require("express").Router();
 const isLoggedIn = require("../middleware/isLoggedIn")
 const User =require("../models/User.model")
 const RecetaModel = require("../models/Receta.model")
+const uploader =require("../middleware/uploader")
 
 
  router.get('/',isLoggedIn,(req, res, next) =>{ 
@@ -13,24 +14,34 @@ const RecetaModel = require("../models/Receta.model")
       res.render("recetas/crear-receta.hbs")
  })
 
- router.post ("/crear-receta", isLoggedIn, (req, res, next) => {
-      const {nombre,creacion, imagen, tipo, dificultad, autor} = req.body
+ router.post ("/crear-receta", isLoggedIn, uploader.single("receta-img"), (req, res, next) => {
+     const {nombre,creacion, tipo, dificultad, duracion, autor} = req.body
+     console.log(req.body)
+     // console.log(req.file, "HOLA")
+   
+     RecetaModel.create({nombre,creacion, duracion, imagen: req.file.path , tipo, dificultad, autor})
 
-      RecetaModel.create({nombre,creacion, imagen, tipo, dificultad, autor})
-      .then((crearReceta) =>{
-            res.redirect(`/${crearReceta._id}/actualizar`)
-      })
-      .catch((err) => {
+     .then((crearReceta) =>{
+     res.redirect(`/perfil/${crearReceta._id}/actualizar`)
+     })
+     .catch((err) => {
           next(err);
      })
  })
 
  router.get ("/:id/actualizar",isLoggedIn, (req, res, next) => {
       const {id} = req.params
+      const {nombre,creacion, tipo, dificultad, duracion, autor, ingredientes} = req.body
 
-      RecetaModel.findById(id) 
+      RecetaModel.findById(id)
       .then((recetaActualizar) => {
            res.render("recetas/actualizar-receta.hbs", {recetaActualizar})
+           RecetaModel.findByIdAndUpdate(id),{
+               ingredientes
+          }
+      })
+      .then((actualizarIngredientes) =>{
+           res.render("recetas/actualizar-receta.hbs", {actualizarIngredientes}) 
       })
       .catch((err) => {
            next(err);
