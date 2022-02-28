@@ -51,7 +51,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "El nombre de usuario ya está en uso." });
+        .render("auth/signup", { errorMessage: "El nombre de usuario ya está en uso." });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -69,7 +69,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/perfil");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -129,6 +129,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           });
         }
         req.session.user = user;
+        console.log("HOLA")
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         
         return res.redirect("/perfil");

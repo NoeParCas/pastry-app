@@ -1,11 +1,11 @@
 <div>
-  <div><h2>Recetas sin {{! titulo de receta.tipo }}</h2></div>
-  {{#each}}
+  <div><h2>Recetas {{tipoDulce.tipo }}</h2></div>
+  {{#each tipoDulce}}
   <div> 
-    <a href="/recetario/lista-receta/{{!receta_id}}">
+    <a href="/recetario/{{this._id}}/detalles">
       <button>
-        <h3>{{!receta.nombre}}</h3>
-        <img src="{{!receta.imagen}}" alt="Receta dulce" />
+        <h3>{{this.nombre}}</h3>
+        <img src="{{this.imagen}}" alt="Receta dulce"/>
       </button>
     </a>
   </div>

@@ -5,7 +5,6 @@ const User =require("../models/User.model")
  router.get('/',isLoggedIn,(req, res, next) =>{ 
        console.log( "usuario autorizado") 
        res.render("perfil/perfil-usuario.hbs")
-
  })
 
 

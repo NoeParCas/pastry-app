@@ -1,25 +1,27 @@
 <div>
-    <h2>{{!Nombre de la base de datos}}</h2>
-    <img src="{{!imagen de la base de datos}}" alt="">
+    <h2>{{recetaDetalle.nombre}}</h2>
 </div>
+    <img src="{{recetaDetalle.imagen}}" alt="PATATA" >
 <div>
-    <p>duracion y dificultad{{!-- info de dificultad --}}</p>
-    <p>fecha de creación {{!-- info de la fecha --}}</p>
+    <p>duracion y dificultad {{recetaDetalle.dificultad}}</p>
+    <p>fecha de creación {{recetaDetalle.duracion}}</p>
     
         <div>
             <h4>Pasos</h4>
-            <ul>
-                {{#each}}
-                {{!-- info de los pasos --}}
+            <ol>
+                {{#each recetaDetalle.pasos}}
+                <li>
+                {{this.Paso}}
+                </li>
                 {{/each}}
-            </ul>
+            </ol>
         </div>
     </div>
 <div>
     <h4>Ingredientes</h4>
     <ul>
-        {{#each}} 
-        {{!-- info de los ingredientes --}}
+        {{#each recetaDetalle}} 
+        {{this.ingredientes}}
         {{/each}}
     </ul>
 

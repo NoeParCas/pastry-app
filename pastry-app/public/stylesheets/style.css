@@ -13,9 +13,9 @@ h1 {
   font-size: 5rem;
 }
 
-li{
+/* li{
   list-style: none;
-}
+} */
 
 #nav-bar{
   display: flex;
