@@ -7,7 +7,7 @@ const recetasArr = [
         tipo:"Saludable",
         duracion: 30,
         dificultad: "Baja",
-        imagen: "../images/recetas-img/galletas-avena-chocolate.jpeg",
+        imagen: "../../images/recetas-img/galletas-avena-chocolate.jpeg",
         autor: "621a440881abf326ee365317",
         pasos:[
             {Paso: "Batir la mantequilla con el azúcar."},
@@ -26,7 +26,7 @@ const recetasArr = [
         tipo:"Saludable",
         duracion: 40,
         dificultad: "Baja",
-        imagen: "../images/recetas-img/crepes-light.jpeg",
+        imagen: "../../images/recetas-img/crepes-light.jpeg",
         autor: "621a440881abf326ee365317",
         pasos:[
             {Paso:"Mezcla la harina con el edulcorante (si se quiere dulce), los huevos y la mitad de la leche. Remueve bien y después ve añadiendo poco a poco el resto de la leche y finalmente el AOVE y la ralladura de limón (si se desea). Deja reposar la mezcla entre 20-30min bien tapada."},
@@ -42,7 +42,7 @@ const recetasArr = [
         tipo:"Saludable",
         duracion: 30,
         dificultad: "Baja",
-        imagen: "../images/recetas-img/muffin-arandanos.jpeg",
+        imagen: "../../images/recetas-img/muffin-arandanos.jpeg",
         autor: "621a440881abf326ee365317",
         pasos:[
             {Paso: "Precalentar el horno a 200°C."},
@@ -60,7 +60,7 @@ const recetasArr = [
         tipo:"Sin gluten",
         duracion: 60,
         dificultad: "Media",
-        imagen: "../images/recetas-img/tartadequesosingluten.jpeg",
+        imagen: "../../images/recetas-img/tartadequesosingluten.jpeg",
         autor: "621a440881abf326ee365316",
         pasos:[
             {Paso: "Tritura las galletas con la ayuda de un mortero ó picadora y mezcla con los 20 gramos de mantequilla derretida. Mezcla bien hasta conseguir una textura como de arena mojada y cubre el fondo de los tarros presionando para que compacte bien. Reserva en la nevera."},
@@ -76,7 +76,7 @@ const recetasArr = [
         tipo:"Sin gluten",
         duracion: 60,
         dificultad: "Media",
-        imagen: "../images/recetas-img/brownie.jpeg",
+        imagen: "../../images/recetas-img/brownie.jpeg",
         autor: "621a440881abf326ee365317",
         pasos:[
             {Paso: "Derrite la mantequilla con el chocolate a fuego suave."},
@@ -92,7 +92,7 @@ const recetasArr = [
         tipo:"Sin gluten",
         duracion: 60,
         dificultad: "Media",
-        imagen: "../images/recetas-img/flan-queso-miel.jpeg",
+        imagen: "../../images/recetas-img/flan-queso-miel.jpeg",
         autor:"621a440881abf326ee365316",
         pasos:[
             {Paso: "Para el caramelo, pon el azúcar a fundir en una sartén con unas gotas de agua y vinagre. Cuando se funda y coja un poco de color, viértelo sobre el molde (reservando un poco) y espárcelo bien."},
@@ -108,7 +108,7 @@ const recetasArr = [
         tipo:"Dulce",
         duracion: 90,
         dificultad: "Media",
-        imagen: "../images/recetas-img/tartaleta-frambuesa.jpeg",
+        imagen: "../../images/recetas-img/tartaleta-frambuesa.jpeg",
         autor: "621a440881abf326ee365316",
         pasos:[
             {Paso: "Crema pastelera:Poner a hervir la leche con la vaina de vainilla. Mientras, poner las yemas en un bol y mezclar con el azúcar. Batir bien con las varillas hasta que empiece a aclararse el color. Añadir la maizena y mezclar."},
@@ -127,7 +127,7 @@ const recetasArr = [
         tipo:"Dulce",
         duracion: 180,
         dificultad: "Alta",
-        imagen: "../images/recetas-img/tarta-zanahoria.jpeg",
+        imagen: "../../images/recetas-img/tarta-zanahoria.jpeg",
         autor: "621a440881abf326ee365317",
         pasos:[
             {Paso: "Vamos a empezar por los bizcochos, para ello lavamos muy bien las zanahorias. Secamos y picamos hasta que queden en trocitos muy pequeñitos. Si no tenéis la picadora de la batidora tendréis que hacerlo a mano. Reservamos."},
@@ -148,7 +148,7 @@ const recetasArr = [
         tipo:"Dulce",
         duracion: 50,
         dificultad: "Media",
-        imagen: "../images/recetas-img/bizcocho-chocolate",
+        imagen: "../../images/recetas-img/bizcocho-chocolate",
         autor: "621a440881abf326ee365316",
         pasos:[
             {Paso: "Vacía el yogur en un pequeño bol para poder utilizar su recipiente desde el primer momento."},
