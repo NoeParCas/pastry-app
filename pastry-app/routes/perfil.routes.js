@@ -8,10 +8,9 @@ const { findByIdAndDelete } = require("../models/User.model");
 router.get("/", isLoggedIn, (req, res, next) => {
 
      RecetaModel.find({autor: req.session.user._id})
-     // .populate("autor")
-  //console.log( "usuario autorizado")
+ 
   .then((recetas) =>{
-     console.log(recetas);
+     
      res.render("perfil/perfil-usuario.hbs", {recetas});
   })
 });
@@ -23,8 +22,7 @@ router.get("/crear-receta", isLoggedIn, (req, res, next) => {
 router.post("/crear-receta", isLoggedIn,uploader.single("receta-img"),(req, res, next) => {
     const { nombre, creacion, tipo, dificultad, duracion } = req.body;
     const autor = req.session.user._id;
-    // console.log(req.session.user)
-    // console.log(req.file, "HOLA")
+   
     //APUNTAR RELACION AUTOR CON ID DE USUARIO
     RecetaModel.create({
       nombre,
@@ -37,7 +35,7 @@ router.post("/crear-receta", isLoggedIn,uploader.single("receta-img"),(req, res,
     })
 
       .then((crearReceta) => {
-        // console.log(crearReceta, "HOLA")
+        
         res.redirect(`/perfil/${crearReceta._id}/actualizar`);
       })
       .catch((err) => {
@@ -79,12 +77,11 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
   const { id } = req.params;
   const { descripcion, numero } = req.body;
 
-//   console.log("LLEGA O QUE", req.body);
   const recipe = await RecetaModel.findById(id);
 
   // si el numero de paso existe
   let foundPaso = recipe.pasos.find((eachPaso) => {
-    console.log(eachPaso.numero, numero);
+    
     return eachPaso.numero == numero;
   });
   if (foundPaso) {
@@ -115,15 +112,49 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
   res.redirect(`/perfil/${id}/actualizar`);
 });
 
+//!revisar qué sería buena practica .post o .delete
+router.get("/:id/delete", isLoggedIn, async (req, res,  next)=>{
 
-router.post("/:id/delete", isLoggedIn, async (req, res,  next)=>{
   try{
+    
       const {id} = req.params
+     
       await RecetaModel.findByIdAndDelete(id)
-      res.redirect("/")
+      res.redirect("/perfil")
   }
   catch(err){
     next(err)
   }
 }), 
+
+router.get("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
+
+     try{
+          console.log("OK")
+          const{id} = req.params
+          const recetaActualizarTodo = await RecetaModel.findById(id)
+          res.render("recetas/actualizar-todo.hbs", {recetaActualizarTodo})
+     }
+     catch(err) {
+          next(err)
+     }
+})
+
+router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
+     console.log("HOLA")
+     try{
+          console.log("OOOO")
+          const { nombre,imagen, creacion, tipo, dificultad, duracion, pasos, ingredientes } = req.body;
+          const{id} = req.params
+          console.log(id,  "CATA");
+          await RecetaModel.findByIdAndUpdate(id,{ 
+               $addToSet: { ingredientes }
+          })
+          res.redirect(`/recetario/${id}/detalles`)
+     }
+     catch(err) {
+          next(err)
+     }
+})
+
 module.exports = router;

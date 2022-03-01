@@ -1,0 +1,81 @@
+<h2>Actualiza tu receta!!!</h2>
+
+
+<div>
+    <form method="POST" action="/perfil/{{recetaActualizarTodo._id}}/actualizartodo" >
+    <label for="nombre">
+    <input type="text" name="nombre" value="{{recetaActualizarTodo.nombre}}">
+    </label>
+    </form>
+</div>
+
+    <form method="POST" action="/perfil/{{recetaActualizarTodo._id}}/actualizartodo" enctype="multipart/form-data">
+    <label for="receta-img">
+        <img src="{{recetaActualizarTodo.imagen}}" alt="PATATA" >
+        <input type="file" name="receta-img">
+    </label>
+    </form>
+
+<div>
+    <form method="POST" action="/perfil/{{recetaActualizarTodo._id}}/actualizartodo">
+   <label for="dificultad">Dificultad:</label>
+    <select name="dificultad">
+       
+        <option value="{{recetaActualizarTodo.dificultad}}">Alta</option>
+        <option value="{{recetaActualizarTodo.dificultad}}">Media</option>
+        <option value="{{recetaActualizarTodo.dificultad}}">Baja</option>
+    
+    </select>
+    
+    <label for="duracion">Duración:
+    <input type="text" name="duracion" value="{{recetaActualizarTodo.duracion}}">
+    </label>
+   
+   <label for="tipo">Tipo:</label>
+    <select name="tipo">
+       
+        <option value="{{recetaActualizarTodo.tipo}}">Dulce</option>
+        <option value="{{recetaActualizarTodo.tipo}}">Saludable</option>
+        <option value="{{recetaActualizarTodo.tipo}}">Sin Gluten</option>
+    
+    </select>
+
+    
+        <div>
+            <h4>Pasos</h4>
+           
+                {{#each recetaActualizarTodo.pasos}}
+                <label for="pasos">
+                    <input type="text" name="numero" value="{{this.numero}}">:
+                    <textarea name="descripcion" >{{this.descripcion}}</textarea>
+                </label>
+                {{/each}}
+           
+        </div>
+    </div>
+<div>
+    <h4>Ingredientes</h4>
+    <ul>
+        {{#each recetaActualizarTodo.ingredientes}}
+        <li>
+        <label for="ingredientes">
+        <input type="text" name="ingredientes" value="{{this}}">
+        </label>
+        </li> 
+        {{/each}}
+    </ul>
+
+    </form>
+
+{{! BOUNUS=> COMENTARIOS 
+
+    <div>
+        <h6>Usuario</h6>
+        <div>
+            <p>{comentario}</p>
+        </div>
+    </div>
+}}
+    <a href="/recetario/{{recetaActualizarTodo._id}}/detalles"><button>Actualizar!!</button></a>
+</div>
+

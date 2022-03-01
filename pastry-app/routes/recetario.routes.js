@@ -41,7 +41,6 @@ router.get ("/", (req,res,next)=>{
 
         RecetaModel.findById(req.params.id)
         .then((recetaDetalle)=>{
-            console.log(recetaDetalle.pasos);
             res.render("recetas/receta", {recetaDetalle})
         })
         .catch((error) => {
