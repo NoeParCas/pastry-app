@@ -6,6 +6,7 @@
     <label for="nombre">
     <input type="text" name="nombre" value="{{recetaActualizarTodo.nombre}}">
     </label>
+    <button>Actualizar</button>
     </form>
 </div>
 
@@ -65,6 +66,8 @@
         {{/each}}
     </ul>
 
+     {{!-- <a href="/recetario/{{recetaActualizarTodo._id}}/detalles"><button>Actualizar!!</button></a>  --}}
+     <a href="/perfil/{{recetaActualizarTodo._id}}/actualizartodo"><button>Actualizar!!</button></a> 
     </form>
 
 {{! BOUNUS=> COMENTARIOS 
@@ -76,6 +79,5 @@
         </div>
     </div>
 }}
-    <a href="/recetario/{{recetaActualizarTodo._id}}/detalles"><button>Actualizar!!</button></a>
 </div>
 

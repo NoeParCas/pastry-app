@@ -28,7 +28,7 @@ const recetaSchema = new Schema({
 
   imagen: {
     type: String,
-    required: true, 
+   required: true, 
   },
 
   autor: {

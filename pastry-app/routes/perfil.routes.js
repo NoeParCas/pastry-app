@@ -147,8 +147,9 @@ router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
           const { nombre,imagen, creacion, tipo, dificultad, duracion, pasos, ingredientes } = req.body;
           const{id} = req.params
           console.log(id,  "CATA");
-          await RecetaModel.findByIdAndUpdate(id,{ 
-               $addToSet: { ingredientes }
+          await RecetaModel.findByIdAndUpdate(id,{ nombre, imagen, creacion, tipo, dificultad, duracion,
+            ingredientes, pasos   
+            //$addToSet: { ingredientes }
           })
           res.redirect(`/recetario/${id}/detalles`)
      }
