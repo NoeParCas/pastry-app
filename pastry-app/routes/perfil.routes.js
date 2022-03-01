@@ -5,8 +5,14 @@ const RecetaModel = require("../models/Receta.model");
 const uploader = require("../middleware/uploader");
 
 router.get("/", isLoggedIn, (req, res, next) => {
+
+     RecetaModel.find({autor: req.session.user._id})
+     // .populate("autor")
   //console.log( "usuario autorizado")
-  res.render("perfil/perfil-usuario.hbs");
+  .then((recetas) =>{
+     console.log(recetas);
+     res.render("perfil/perfil-usuario.hbs", {recetas});
+  })
 });
 
 router.get("/crear-receta", isLoggedIn, (req, res, next) => {
@@ -76,7 +82,7 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
   const { id } = req.params;
   const { descripcion, numero } = req.body;
 
-  console.log("LLEGA O QUE", req.body);
+//   console.log("LLEGA O QUE", req.body);
   const recipe = await RecetaModel.findById(id);
 
   // si el numero de paso existe

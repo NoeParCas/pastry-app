@@ -12,16 +12,21 @@
     </div>
   </div>  
   <div id="recetas-profile">
-      {{!#each recetas_id}}
+      {{#each recetas}}
         <div>
-            {{!recetas.nombre}}
-            {{!recetas.img}}
+          <a href="/recetario/{{this._id}}/detalles">{{this.nombre}}</a>
+             <img src="{{this.imagen}}" alt="PATATA" >
                 <div>
+                    <a href="">
                     <button>Actualizar</button>
+                    </a>
+                    
+                     <a href="">
                     <button>Eliminar</button>
+                     </a> 
                 </div>
         </div>
-      {{!/each}}
+      {{/each}}
   </div>
 </div>
 
