@@ -118,4 +118,6 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
   res.redirect(`/perfil/${id}/actualizar`);
 });
 
+
+
 module.exports = router;
