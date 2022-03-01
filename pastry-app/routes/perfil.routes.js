@@ -3,6 +3,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const RecetaModel = require("../models/Receta.model");
 const uploader = require("../middleware/uploader");
+const { findByIdAndDelete } = require("../models/User.model");
 
 router.get("/", isLoggedIn, (req, res, next) => {
 
@@ -19,11 +20,7 @@ router.get("/crear-receta", isLoggedIn, (req, res, next) => {
   res.render("recetas/crear-receta.hbs");
 });
 
-router.post(
-  "/crear-receta",
-  isLoggedIn,
-  uploader.single("receta-img"),
-  (req, res, next) => {
+router.post("/crear-receta", isLoggedIn,uploader.single("receta-img"),(req, res, next) => {
     const { nombre, creacion, tipo, dificultad, duracion } = req.body;
     const autor = req.session.user._id;
     // console.log(req.session.user)
@@ -118,4 +115,14 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
   res.redirect(`/perfil/${id}/actualizar`);
 });
 
+router.post("/:id/delete", isLoggedIn, async (req, res,  next)=>{
+  try{
+      const {id} = req.params
+      await RecetaModel.findByIdAndDelete(id)
+      res.redirect("/")
+  }
+  catch(err){
+    next(err)
+  }
+}), 
 module.exports = router;
