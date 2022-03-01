@@ -170,7 +170,9 @@ const Receta = require("../models/Receta.model")
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/pastry-app")
+const MONGO_URI = require("../utils/consts");
+
+mongoose.connect(MONGO_URI)
 .then((response) => {
     console.log("CONECTADOS!!!!")
     return Receta.insertMany(recetasArr)
