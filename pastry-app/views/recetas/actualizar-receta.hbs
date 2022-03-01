@@ -5,12 +5,12 @@
 </div>
     <img src="{{recetaActualizar.imagen}}" alt="PATATA" >
 <div>
-    <p>Dificultad {{recetaActualizar.dificultad}}</p>
-    <p>Duración {{recetaActualizar.duracion}} minutos</p>
-
+    <p>Duración: {{recetaActualizar.duracion}} minutos</p>
+    <p>Dificultad: {{recetaActualizar.dificultad}}</p> 
+    <p>Tipo: {{recetaActualizar.tipo}}</p> 
 
 <div>
-    <form action="/perfil/{{recetaActualizar._id}}/actualizar" method="POST">
+    <form action="/perfil/{{recetaActualizar._id}}/actualizar/ingredientes" method="POST">
     <label for="ingredientes">Ingredientes</label>
     <input name="ingredientes" type="text"> 
     <button>Añadir</button>
@@ -23,6 +23,30 @@
                 {{#each recetaActualizar.ingredientes}}
                 <li>
                 {{this}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+<div>
+    <form action="/perfil/{{recetaActualizar._id}}/actualizar/pasos" method="POST">
+
+    <label for="numero">Número</label>
+    <input name="numero" type="number">
+
+    <label for="descripcion">Pasos</label>
+    <textarea rows= "7" name="descripcion"> </textarea>
+    <button>Añadir</button>
+    </form>
+</div>
+
+<div>
+        <h4>Pasos a seguir: </h4>
+            <ul>
+                {{#each recetaActualizar.pasos}}
+                <li>
+                {{this.numero}}
+                {{this.descripcion}}
                 </li>
                 {{/each}}
             </ul>

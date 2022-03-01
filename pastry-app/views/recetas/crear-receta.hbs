@@ -16,12 +16,51 @@
         <input type="text" name="duracion">
         </label>
 
-        <label for="dificultad">Dificultad:
-        <input type="text" name="dificultad">
-        </label>
+<p>Dificultad:</p>
 
-        <label for="tipo">Tipo:</label>
-        <select name="tipo" multiple>
+<div>
+  <input type="radio" id="" name="dificultad" value="Alta"
+         checked>
+  <label for="Alta">Alta</label>
+</div>
+
+<div>
+  <input type="radio" id="" name="dificultad" value="Media">
+  <label for="media">Media</label>
+</div>
+
+<div>
+  <input type="radio" id="" name="dificultad" value="Baja">
+  <label for="Baja">Baja</label>
+</div>
+
+<p>Tipo receta:</p>
+
+<div>
+  <input type="radio" id="" name="tipo" value="Dulce"
+         checked>
+  <label for="Dulce">Dulce</label>
+</div>
+
+<div>
+  <input type="radio" id="" name="tipo" value="Saludable">
+  <label for="Saludable">Saludable</label>
+</div>
+
+<div>
+  <input type="radio" id="" name="tipo" value="Sin-gluten">
+  <label for="Sin-gluten">Sin gluten</label>
+</div>
+
+
+        {{!-- <label for="dificultad">Dificultad:
+        <input type="text" name="dificultad">
+        </label> --}}
+
+        {{!-- <label for="tipo">Tipo:</label>
+        <select name="tipo" multiple> --}}
+
+            
         {{#each crearReceta}}
         <option value={{this.tipo}}>{{this.tipo}}</option>
         {{/each}}
