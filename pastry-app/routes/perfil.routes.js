@@ -141,29 +141,34 @@ router.get("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
 })
 
 router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
-     console.log("HOLA")
+     
      try{
-         // console.log("OOOO")
+         
           const { nombre,imagen, creacion, tipo, dificultad, duracion, pasos, descripcion, numero,  ingredientes } = req.body;
           const{id} = req.params
           
-          console.log("BUMMMMM", numero, descripcion);
+         // Si  hay más de un paso => entonces bucle 
           if (numero.length> 1){
+           //iteramos por la array que nos llega del input "name: numero"
             for(let i = 0; i < numero.length; i++){
               
               await RecetaModel.findOneAndUpdate(
                 {
                   _id: id,
+
+                  //accedo a la propiedad
                   "pasos.numero": numero[i],
                 },
                 {
                   $set: {
+                    //Con el símbolo ($) indico la propiedad a la que he accedido.
+                                            // Después modifico  
                     "pasos.$.descripcion": descripcion[i],
                   },
                 }
               );
             }
-
+            // Si  hay un paso => entonces actualiza directamente
           } else {
             await RecetaModel.findOneAndUpdate(
               {
@@ -176,12 +181,12 @@ router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
                 },
               }
             );
-
           }
- 
+        
+          //actualizar la receta 
+
           await RecetaModel.findByIdAndUpdate(id,{ nombre, imagen, creacion, tipo, dificultad, duracion,
             ingredientes, 
-          
           })
           res.redirect(`/recetario/${id}/detalles`)
      }
