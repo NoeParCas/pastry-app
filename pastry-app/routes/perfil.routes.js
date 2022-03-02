@@ -143,13 +143,45 @@ router.get("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
 router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
      console.log("HOLA")
      try{
-          console.log("OOOO")
-          const { nombre,imagen, creacion, tipo, dificultad, duracion, pasos, ingredientes } = req.body;
+         // console.log("OOOO")
+          const { nombre,imagen, creacion, tipo, dificultad, duracion, pasos, descripcion, numero,  ingredientes } = req.body;
           const{id} = req.params
-          console.log(id,  "CATA");
+          
+          console.log("BUMMMMM", numero, descripcion);
+          if (numero.length> 1){
+            for(let i = 0; i < numero.length; i++){
+              
+              await RecetaModel.findOneAndUpdate(
+                {
+                  _id: id,
+                  "pasos.numero": numero[i],
+                },
+                {
+                  $set: {
+                    "pasos.$.descripcion": descripcion[i],
+                  },
+                }
+              );
+            }
+
+          } else {
+            await RecetaModel.findOneAndUpdate(
+              {
+                _id: id,
+                "pasos.numero": numero,
+              },
+              {
+                $set: {
+                  "pasos.$.descripcion": descripcion,
+                },
+              }
+            );
+
+          }
+ 
           await RecetaModel.findByIdAndUpdate(id,{ nombre, imagen, creacion, tipo, dificultad, duracion,
-            ingredientes, pasos   
-            //$addToSet: { ingredientes }
+            ingredientes, 
+          
           })
           res.redirect(`/recetario/${id}/detalles`)
      }
