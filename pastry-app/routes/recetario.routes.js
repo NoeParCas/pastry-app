@@ -47,11 +47,11 @@ router.get ("/", (req,res,next)=>{
             const {id} = req.params         
                                                                         // con la key del modelo Receta
                                                                         //        ||
-            const  recetaDetalle = await RecetaModel.findById(id).populate("comentario")
+            const  recetaDetalle = await RecetaModel.findById(id).populate("autor")
            
-           // populate("autor")
-            // const comentario = await ComentarioModel.find(autor: id)    
-            res.render("recetas/receta", {recetaDetalle})
+            const comentarios = await ComentarioModel.find({receta:id}).populate("autor")    
+           
+            res.render("recetas/receta", {recetaDetalle, comentarios})
        
         }
         catch(error)  {
@@ -63,8 +63,9 @@ router.get ("/", (req,res,next)=>{
         // Crear el comentario
         const {comentario} = req.body
         const {id} = req.params
+        
        try{
-        const comentarios = await ComentarioModel.create({comentario})
+        const comentarios = await ComentarioModel.create({comentario, autor:req.session.user._id , receta: id })
         res.redirect(`/recetario/${id}/detalles`)
        }
        catch(err){

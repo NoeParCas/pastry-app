@@ -27,12 +27,12 @@
     </ul>
 
  {{!-- BOUNUS=> COMENTARIOS  --}}
-    {{#each recetaDetalle.comentario}}
+    {{#each comentarios}}
     <div>
-        <h6>{{this.comentario.autor}}</h6>
-        <p>{{this.comentario.fecha}}</p>
+        <h6>{{this.autor.username}}</h6>
+        <p>{{this.fecha}}</p>
         <div>
-            <p>{{this.comentario.comentario}}</p>
+            <p>{{this.comentario}}</p>
         </div>
     </div>
     {{/each}}

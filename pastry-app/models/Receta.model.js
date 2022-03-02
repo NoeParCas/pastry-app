@@ -44,10 +44,10 @@ const recetaSchema = new Schema({
 
  //* BONUS 1: COMENTARIOS (MODELO A MAYORES | RELACION ONE TO MANY)
 
- comentario: {
-  type: Schema.Types.ObjectId,
-  ref: "Comentario",
-},
+//  comentario: {
+//   type: Schema.Types.ObjectId,
+//   ref: "Comentario",
+// },
 
 
 
