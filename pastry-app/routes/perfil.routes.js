@@ -6,12 +6,12 @@ const uploader = require("../middleware/uploader");
 const { findByIdAndDelete } = require("../models/User.model");
 
 router.get("/", isLoggedIn, (req, res, next) => {
-
+  
+     const name = req.session.user.username
+    
      RecetaModel.find({autor: req.session.user._id})
- 
   .then((recetas) =>{
-     
-     res.render("perfil/perfil-usuario.hbs", {recetas});
+     res.render("perfil/perfil-usuario.hbs", {recetas, name}); //
   })
 });
 

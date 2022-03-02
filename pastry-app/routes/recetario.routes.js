@@ -50,7 +50,7 @@ router.get ("/", (req,res,next)=>{
             const  recetaDetalle = await RecetaModel.findById(id).populate("autor")
            
             const comentarios = await ComentarioModel.find({receta:id}).populate("autor")    
-           
+
             res.render("recetas/receta", {recetaDetalle, comentarios})
        
         }

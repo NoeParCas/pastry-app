@@ -6,7 +6,8 @@
     <p>Dificultad: {{recetaDetalle.dificultad}}</p>
     <p>Duración: {{recetaDetalle.duracion}}</p>
     <p>Autor: {{recetaDetalle.autor.username}}</p>
-    
+    <a href="/recetario/{{recetaDetalle.tipo}}"><p>{{recetaDetalle.tipo}}</p></a>
+       {{#if isLoggedIn}}
         <div>
             <h4>Pasos</h4>
             <ul>
@@ -30,7 +31,7 @@
     {{#each comentarios}}
     <div>
         <h6>{{this.autor.username}}</h6>
-        <p>{{this.fecha}}</p>
+        <p>{{dateToString this.fecha}}</p>
         <div>
             <p>{{this.comentario}}</p>
         </div>
@@ -50,6 +51,14 @@
        
     </div>
 
+    {{else}}
+    <a href="/auth/signup"><h3>Regístrate, para acceder al contenido exclusivo de Pastry.  </h3></a>
+    <div class = "difuminado"></div>
+
+    
+
+    
+{{/if}}
 </div>
 
 

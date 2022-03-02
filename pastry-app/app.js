@@ -23,6 +23,16 @@ const projectName = "pastry-app";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
+
+//* Helper para cambiar la fecha. 
+
+hbs.registerHelper("dateToString", (date)=>{
+    return date.toDateString()
+})
+
+
+
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);
