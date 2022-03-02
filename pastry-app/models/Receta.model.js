@@ -41,6 +41,16 @@ const recetaSchema = new Schema({
   ],
 
   ingredientes: [{type: String}],
+
+ //* BONUS 1: COMENTARIOS (MODELO A MAYORES | RELACION ONE TO MANY)
+
+ comentario: {
+  type: Schema.Types.ObjectId,
+  ref: "Comentario",
+},
+
+
+
 });
 
 const RecetaModel = model("Receta", recetaSchema); 

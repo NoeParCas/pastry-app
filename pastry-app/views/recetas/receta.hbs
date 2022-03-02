@@ -5,6 +5,7 @@
 <div>
     <p>Dificultad: {{recetaDetalle.dificultad}}</p>
     <p>Duración: {{recetaDetalle.duracion}}</p>
+    <p>Autor: {{recetaDetalle.autor.username}}</p>
     
         <div>
             <h4>Pasos</h4>
@@ -25,15 +26,29 @@
         {{/each}}
     </ul>
 
-{{! BOUNUS=> COMENTARIOS 
+ {{!-- BOUNUS=> COMENTARIOS  --}}
+    {{#each recetaDetalle.comentario}}
+    <div>
+        <h6>{{this.comentario.autor}}</h6>
+        <p>{{this.comentario.fecha}}</p>
+        <div>
+            <p>{{this.comentario.comentario}}</p>
+        </div>
+    </div>
+    {{/each}}
 
     <div>
         <h6>Usuario</h6>
-        <div>
-            <p>{comentario}</p>
-        </div>
+
+            <div>
+                <form action="/recetario/{{recetaDetalle._id}}/detalles" method="POST">
+                <label for="comentario">Comentario</label>
+                <textarea rows= "15" name="comentario"> </textarea>
+                <button>Deja tu comentario</button>
+                </form>
+            </div>
+       
     </div>
-}}
 
 </div>
 

@@ -20,10 +20,11 @@
                     <a href="/perfil/{{this._id}}/actualizartodo">
                     <button>Actualizar</button>
                     </a>
-                    
-                     <a href="/perfil/{{this._id}}/delete">
-                    <button>Eliminar</button>
-                     </a> 
+                     
+                    <form action="/perfil/{{this._id}}/delete" method="POST">
+                      <button>Eliminar</button>
+
+                    </form>
                 </div>
         </div>
       {{/each}}

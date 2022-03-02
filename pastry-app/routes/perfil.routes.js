@@ -113,7 +113,7 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
 });
 
 //!revisar qué sería buena practica .post o .delete
-router.get("/:id/delete", isLoggedIn, async (req, res,  next)=>{
+router.post("/:id/delete", isLoggedIn, async (req, res,  next)=>{
 
   try{
     

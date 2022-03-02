@@ -22,7 +22,13 @@ const userSchema = new Schema(
       type:String,
       enum : ["Admin", "User"], 
       default: "User"
-    }
+    },
+    //* BONUS 1: COMENTARIOS (MODELO A MAYORES | RELACION ONE TO MANY)
+
+    comentario: {
+      type: Schema.Types.ObjectId,
+      ref: "Comentario",
+    },
   },
 
 
