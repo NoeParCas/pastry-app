@@ -1,10 +1,17 @@
+/*fuente para toda la app-*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lobster&display=swap');
+/*font-family: 'Libre Baskerville', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&family=Libre+Baskerville&family=Lobster&family=Lora&display=swap');
+/*font-family: 'Cormorant', serif;*/
+
+
 body {
   padding: 0px; 
   margin: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Libre Baskerville', serif;
 }
 
-a {
+ a {
   color: #00b7ff;
   
 }
@@ -25,35 +32,57 @@ li{
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+  
+  background-color: rgb(25, 33, 41)  ;
+  /* padding: 10px; */
+  width: 100vw;
+  margin:0px;
 
-  width: 100vh;
-  height: 5vh; 
-  margin-top: 50px;
 }
 
 #nav-bar a{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-family: 'Libre Baskerville', serif;
+  /* font-family: 'Cormorant'; */
   text-decoration: none;
+  color: white;
 }
+/* #nav-bar a:hover{
+  background-color: rgb(16, 21, 26) ;
+} */
 
+.ancor-nav{
+  padding: 10px;
+  margin:0px;
+  width: 20%;
+  display:flex;
+  justify-content: center;
+}
+.ancor-nav:hover{
+  background-color: rgb(16, 21, 26) ;
+}
 /* HOME */
 
 #home-container {
   background-image: url(../images/background-img.jpeg);
   background-size: cover;
   height: 100vh;
+
+  width: 100vw;
 }
 
 .title {
-  font-size: 5rem;
+ 
   color: white;
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+ 
 }
 
 .title h1{
-  margin-top:300px;
+  font-family: 'Libre Baskerville';
+  margin-top:250px;
+  font-size:10rem;
 }
 
 /* LOGIN */
@@ -71,6 +100,19 @@ li{
 }
 
 /* SIGNUP */
+#signup-referencia{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../images/background-img.jpeg) ; 
+  /* linear-gradient (to bottom, rgb(25, 33, 41), rgba(253, 253, 253, 0.089)) */
+  background-size: cover;
+  height: 100vh;
+
+}
+
+
+
 
 #signup-container {
   display: flex;
@@ -78,13 +120,53 @@ li{
   align-items: center;
   margin: 200px;
   padding: 100px;
+  /* background-color: rgba(58, 59, 66, 0.856); */
+  /* background: var(--color-grey); */
+  background-color: rgba(255, 255, 255, 0.767);
+  padding: 30px;
+  border-radius: 5%;
+  width: 250px;
+ 
+}
+#signup-container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup-container h2{
+  
+  font-size: 5em;
+  color:rgb(25, 33, 41) ;
+  margin-top: 25px;
 }
 
 .signup-label input{
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  height: 30px;
+  width: 200px;
+  font-size: 1.2rem;
   border-radius: 5px;
+  border-style: none;
+  
 }
+
+.btn-inicio{
+  border-radius: 15px;
+  font-size: 1.2rem;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(49, 60, 71) ;
+  color: white;
+  font-family:'Libre Baskerville', serif ;
+  border-style: none;
+}
+.btn-inicio:hover{
+ 
+  background-color: rgb(16, 21, 26) ;
+  
+}
+
 
 
 
