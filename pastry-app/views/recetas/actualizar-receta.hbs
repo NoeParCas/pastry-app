@@ -1,24 +1,34 @@
-<h3>Completa tu receta añadiendo los ingredientes!</h3>
+<div class="lista-recetas">
 
 <div>
     <h2>{{recetaActualizar.nombre}}</h2>
 </div>
+<div class="img-info">
+
+<div class="imagen-receta" >
     <img src="{{recetaActualizar.imagen}}" alt="PATATA" >
-<div>
+</div>
+<div class="info-basica">
     <p>Duración: {{recetaActualizar.duracion}} minutos</p>
     <p>Dificultad: {{recetaActualizar.dificultad}}</p> 
     <p>Tipo: {{recetaActualizar.tipo}}</p> 
 
-<div>
+</div>
+</div>
+
+<div class="ingredientes-container">
+
+<div class="inputs-crearingredientes">
     <form action="/perfil/{{recetaActualizar._id}}/actualizar/ingredientes" method="POST">
     <label for="ingredientes">Ingredientes</label>
+
     <input name="ingredientes" type="text"> 
-    <button>Añadir</button>
+    <button class="crea-btn">Añadir</button>
     </form>
 </div>
 
-<div>
-        <h4>Ingredientes</h4>
+<div class="lista-elementos">
+        <h4>Ingredientes:</h4>
             <ul>
                 {{#each recetaActualizar.ingredientes}}
                 <li>
@@ -26,22 +36,36 @@
                 </li>
                 {{/each}}
             </ul>
-        </div>
+</div>
+</div>
 
-<div>
+<div class="inputs-crear">
     <form action="/perfil/{{recetaActualizar._id}}/actualizar/pasos" method="POST">
 
+<div id="pasos">
+    <label  for="descripcion">Introduce las instrucciones de forma ordenada:</label>
+
+</div>
+    
+<div>
+
+    <div>
     <label for="numero">Número</label>
     <input name="numero" type="number">
-
-    <label for="descripcion">Pasos</label>
+</div>
+    <br>
     <textarea rows= "7" name="descripcion"> </textarea>
-    <button>Añadir</button>
+</div>
+    <button class="crea-btn">Añadir</button>
     </form>
 </div>
 
-<div>
+<div class="pasos-crear">
+    <div>
         <h4>Pasos a seguir: </h4>
+    </div>
+    <div>
+
             <ul>
                 {{#each recetaActualizar.pasos}}
                 <li>
@@ -50,7 +74,11 @@
                 </li>
                 {{/each}}
             </ul>
-        </div>
-
-        <a href="/recetario/{{recetaActualizar._id}}/detalles"><button>Finalizar receta</button></a>
     </div>
+    
+     </div>
+
+        <a href="/recetario/{{recetaActualizar._id}}/detalles"><button class="crea-btn">Finalizar receta</button></a>
+    </div>
+
+</div>

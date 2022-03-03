@@ -14,7 +14,6 @@ body {
 
  a {
   color: #00b7ff;
-  
 }
 
 h1 {
@@ -353,6 +352,127 @@ a{
   display: flex;
   flex-direction: column;
 }
+.tipo-receta-perfil{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items:center;
+  margin: 20px;
+  /* flex-wrap: wrap; */
+  width: 766.28px;
+}
+.actualizar-eliminar{
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+.actualizar-eliminar button{
+  border-radius: 15px;
+  font-size: 0.75rem;
+  width: 100px;
+  height: 20px;
+  background-color: rgb(49, 60, 71) ;
+  color: white;
+  font-family:'Libre Baskerville', serif ;
+  border-style: none;
+  margin: 10px 0;
+}
 
+.actualizar-eliminar button:hover{
+  background-color: rgb(16, 21, 26) ;
+}
+
+.actualizar-eliminar form{
+  margin-top: 10px;
+}
+
+.crea-btn{
+  border-radius: 15px;
+  font-size: 0.75rem;
+  width: 150px;
+  height: 20px;
+  background-color: rgb(49, 60, 71) ;
+  font-family:'Libre Baskerville', serif ;
+  border-style: none;
+  margin: 10px 0;
+  color: white;
+}
+
+.crea-btn:hover{
+  background-color: rgb(16, 21, 26) ;
+}
+
+.crea-btn a{
+  color: white;
+}
+
+
+/* CREAR */
+.btn-receta a{
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.crear-container{
+  display:flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.crear-btn{
+  display: flex;
+  justify-content:center;
+  margin-top: 40px;
+}
+.crear-container input{
+  border-style: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.crear-container label{
+  margin-right: 10px;
+}
+.inputs-crear input{
+  border-style: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.inputs-crearingredientes input{
+  border-style: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.inputs-crearingredientes form{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.pasos-crear {
+  width: 500px;
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-end;
+  /* width: 766.28px; */
+}
+
+.inputs-crear textarea{
+  width: 500px;
+  height: 100px;
+}
+
+#pasos{
+  font-size: 1rem;
+  margin-bottom:20px;
+}
+.ingredientes-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+}
 
 

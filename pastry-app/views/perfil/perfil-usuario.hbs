@@ -1,22 +1,18 @@
 
-<div>
+<div class="lista-recetas">
 <h2>Perfil de {{name}}</h2>
-  <div id="profile">
-    <div>
-        {{!user.imagen}}
-        {{!user.name}}
-    </div>
+    
     <div>
         
-       <a href="perfil/crear-receta"><button> Crea tu propia receta</button></a> 
+       <button class="crea-btn"><a  href="perfil/crear-receta"> Crea tu propia receta</a> </button>
     </div>
-  </div>  
-  <div id="recetas-profile">
+  
+  <div class="tipo-receta-perfil">
       {{#each recetas}}
-        <div>
+        <div class="btn-receta">
           <a href="/recetario/{{this._id}}/detalles">{{this.nombre}}</a>
              <img src="{{this.imagen}}" alt="PATATA" >
-                <div>
+                <div class="actualizar-eliminar">
                     <a href="/perfil/{{this._id}}/actualizartodo">
                     <button>Actualizar</button>
                     </a>

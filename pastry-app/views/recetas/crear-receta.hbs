@@ -1,13 +1,14 @@
-<h1>Crear receta</h1>
-<div>
+<div class="lista-recetas">
+<h2>Crear receta</h2>
     <div>
+      <div class="crear-container">
         <form method="POST" action="/perfil/crear-receta" enctype="multipart/form-data">
-
         <label for="receta-img">
         <input type="file" name="receta-img">
         </label>
+      </div>
         
-
+  <div class="crear-container">
         <label for="nombre">Nombre receta:
         <input type="text" name="nombre">
         </label>
@@ -15,11 +16,17 @@
         <label for="duracion">Duración:
         <input type="text" name="duracion">
         </label>
+  </div>
+
+
+<div class="crear-container">
+
+<div class="dif-tipo">
 
 <p>Dificultad:</p>
 
 <div>
-  <input type="radio" id="" name="dificultad" value="Alta"
+  <input type="radio" name="dificultad" value="Alta"
          checked>
   <label for="Alta">Alta</label>
 </div>
@@ -33,6 +40,9 @@
   <input type="radio" id="" name="dificultad" value="Baja">
   <label for="Baja">Baja</label>
 </div>
+</div>
+
+<div class="dif-tipo">
 
 <p>Tipo receta:</p>
 
@@ -51,29 +61,19 @@
   <input type="radio" id="" name="tipo" value="Sin-gluten">
   <label for="Sin gluten">Sin gluten</label>
 </div>
-
-
-        {{!-- <label for="dificultad">Dificultad:
-        <input type="text" name="dificultad">
-        </label> --}}
-
-        {{!-- <label for="tipo">Tipo:</label>
-        <select name="tipo" multiple> --}}
-
-
             
         {{#each crearReceta}}
         <option value={{this.tipo}}>{{this.tipo}}</option>
         {{/each}}
         </select>
 
-        <button>Crear Receta</button>
-        </form>
-
-
+</div>
+</div>
+    <div class="crear-btn">
+        <button class="btn-inicio">Crear Receta</button>
     </div>
-
-
+        </form>
+    </div>
 
 </div>
 
@@ -81,4 +81,3 @@
 
 
 
-<div></div>
