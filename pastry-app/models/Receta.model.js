@@ -13,7 +13,7 @@ const recetaSchema = new Schema({
 
   tipo: {
     type: String,
-    enum: ["Dulce", "Sin gluten", "Saludable"],
+    enum: ["Dulce", "Sin-gluten", "Saludable"],
   },
 
   duracion: {
