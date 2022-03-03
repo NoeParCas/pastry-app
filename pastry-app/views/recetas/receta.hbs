@@ -1,14 +1,19 @@
+<div class="lista-recetas">
+
 <div>
     <h2>{{recetaDetalle.nombre}}</h2>
 </div>
-    <img src="{{recetaDetalle.imagen}}" alt="PATATA" >
-<div>
+<div class="tipo-receta">
+      <img src="{{recetaDetalle.imagen}}" alt="PATATA" >
     <p>Dificultad: {{recetaDetalle.dificultad}}</p>
     <p>Duración: {{recetaDetalle.duracion}}</p>
     <p>Autor: {{recetaDetalle.autor.username}}</p>
     <a href="/recetario/{{recetaDetalle.tipo}}"><p>{{recetaDetalle.tipo}}</p></a>
-       {{#if isLoggedIn}}
-        <div>
+</div>
+    {{#if isLoggedIn}}
+    <div class="info-container">
+
+        <div class="pasos">
             <h4>Pasos</h4>
             <ul>
                 {{#each recetaDetalle.pasos}}
@@ -18,15 +23,16 @@
                 {{/each}}
             </ul>
         </div>
-    </div>
-<div>
+    <div class="ingredientes">
     <h4>Ingredientes</h4>
     <ul>
         {{#each recetaDetalle}} 
         {{this.ingredientes}}
         {{/each}}
     </ul>
+    </div>
 
+    </div>
  {{!-- BOUNUS=> COMENTARIOS  --}}
     {{#each comentarios}}
     <div>
@@ -56,10 +62,9 @@
     <div class = "difuminado"></div>
 
     
-
-    
 {{/if}}
-</div>
+</v>
 
+</div>
 
 

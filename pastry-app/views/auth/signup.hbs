@@ -7,23 +7,21 @@
    <label class="signup-label">
    <input type="text" name="username" placeholder="Username">
    </label>
-      {{#if errorMessage}}
-         {{errorMessage}}
-      {{/if}}
+     
 <br>
     <label class="signup-label" for="email">
     <input type="email" name="email" placeholder="Email">
     </label>
-      {{#if errorMessage}}
-         {{errorMessage}}
-      {{/if}}
+   
 <br>
   <label class="signup-label" for="password">
     <input type="password" name="password" placeholder="Contraseña">
-      {{#if errorMessage}}
-         {{errorMessage}}
-      {{/if}}
 </label>
+       {{#if errorMessage}}
+      <div class="error-message">
+         {{errorMessage}}
+      </div>
+      {{/if}}
 <br>
     <button type="submit" class="btn-inicio">Registro</button>
 </form>

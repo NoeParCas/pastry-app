@@ -1,23 +1,26 @@
-<div id="login-container">
+<div id="login-referencia">
 
-   <div>
+   <div id="login-container">
+      <h2>Pastry</h2>
+      
+      
       <form action="/auth/login" method="POST">
 
-         <label class="login-label">
+         <label class="signup-label">
             <input type="text" name="username" placeholder="Username">
          </label>
-               {{#if errorMessage}}
-                <p> {{errorMessage}}</p> 
-               {{/if}}
+
          <br>
-         <label class="login-label"> 
+         <label class="signup-label"> 
             <input type="text" name="password" placeholder="Password">
          </label>
-            {{#if errorMessage}}
-                <p> {{errorMessage}}</p> 
-            {{/if}}
+         {{#if errorMessage}}
+            <div class="error-message">
+         {{errorMessage}}
+      </div>
+      {{/if}}
       <br>
-         <button type="submit">Submit</button>
+         <button type="submit" class="btn-inicio">Submit</button>
       </form>
    </div>
 

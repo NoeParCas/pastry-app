@@ -13,16 +13,16 @@
     <div class="ancor-nav"><a  href="/">Home</a></div>
     <div class="ancor-nav"><a  href="/recetario">Recetario</a></div>
     
+  {{#if isLoggedIn}}
+    <div class="ancor-nav"><a  href="/perfil">Perfil</a></div>
+ 
 
-   {{!-- {{#if isLoggedOut }}  --}}
+  {{else}}
     <div class="ancor-nav"><a  href="/auth/login">Acceder</a></div>
     <div class="ancor-nav"><a  href="/auth/signup">Regístrate</a></div>
-    {{!-- {{/if}} --}}
+  {{/if}} 
 
-  {{!-- {{#if isLoggedIn}} --}}
-    <div class="ancor-nav"><a  href="/perfil">Perfil</a></div>
     <div class="ancor-nav"><a href="/auth/logout">Logout</a></div>
-  {{!-- {{/if}} --}}
   </nav>
   
   

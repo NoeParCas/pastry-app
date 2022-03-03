@@ -9,6 +9,7 @@ body {
   padding: 0px; 
   margin: 0px;
   font: 14px 'Libre Baskerville', serif;
+  
 }
 
  a {
@@ -21,7 +22,8 @@ h1 {
 }
 
 img{
-  height: 300px
+  height: 300px;
+  max-width: 400px;
 }
 
 li{
@@ -37,7 +39,6 @@ li{
   /* padding: 10px; */
   width: 100vw;
   margin:0px;
-
 }
 
 #nav-bar a{
@@ -58,6 +59,7 @@ li{
   display:flex;
   justify-content: center;
 }
+
 .ancor-nav:hover{
   background-color: rgb(16, 21, 26) ;
 }
@@ -65,18 +67,16 @@ li{
 
 #home-container {
   background-image: url(../images/background-img.jpeg);
+  /* background-image: url(../images/recetas-img/bizcocho-chocolate.jpeg); */
+  min-height: 94.8vh;
   background-size: cover;
-  height: 100vh;
-
-  width: 100vw;
+  background-position: center;
 }
 
 .title {
- 
   color: white;
   display: flex;
   justify-content: center;
- 
 }
 
 .title h1{
@@ -106,13 +106,10 @@ li{
   align-items: center;
   background-image: url(../images/background-img.jpeg) ; 
   /* linear-gradient (to bottom, rgb(25, 33, 41), rgba(253, 253, 253, 0.089)) */
+  min-height: 94.8vh;
   background-size: cover;
-  height: 100vh;
-
+  background-position: center;
 }
-
-
-
 
 #signup-container {
   display: flex;
@@ -135,7 +132,6 @@ li{
 }
 
 #signup-container h2{
-  
   font-size: 5em;
   color:rgb(25, 33, 41) ;
   margin-top: 25px;
@@ -167,21 +163,100 @@ li{
   
 }
 
+/*LOGIN */
 
+#login-referencia{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../images/background-img.jpeg) ; 
+  /* linear-gradient (to bottom, rgb(25, 33, 41), rgba(253, 253, 253, 0.089)) */
+  min-height: 94.8vh;
+  background-size: cover;
+  background-position: center;
+}
+#login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 200px;
+  padding: 100px;
+  /* background-color: rgba(58, 59, 66, 0.856); */
+  /* background: var(--color-grey); */
+  background-color: rgba(255, 255, 255, 0.767);
+  padding: 30px;
+  border-radius: 5%;
+  width: 250px;
+}
+
+#login-container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login-container h2{
+  font-size: 5em;
+  color:rgb(25, 33, 41) ;
+  margin-top: 25px;
+}
+.error-message{
+  height: 10px;
+  width: 200px;
+  margin: 0px;
+  font-family:"Libre Baskerville"; 
+  font-size: 0.70rem;
+  text-align: center;
+}
 
 
 /* RECETARIO */
 
-#lista-recetas{
+.lista-recetas{
+  margin: 0px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
-  margin:20px;
+  align-items: center;
+  /* background-color: rgb(248, 239, 225); */
+  background-color: rgba(60, 69, 77, 0.208);
+  min-height: 94.8vh;
+}
 
- 
+.lista-recetas h2{
+  font-size: 4rem;
+  margin-top: 80px;
 }
 .recetario {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 50px;
+}
+
+.btn-receta{
+  border-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.767);
+  padding: 10px;
+  padding-bottom:40px;
+  border-radius: 5%;
+  width: 500px;
+  margin: 30px;
+}
+
+.btn-receta h3{
+  font-size: 1.5rem;
+}
+
+a{
+  text-decoration: none;
+}
+
+.info-container{
+  display: flex;
 }
 

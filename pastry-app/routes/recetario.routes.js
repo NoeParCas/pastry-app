@@ -21,7 +21,7 @@ router.get ("/", (req,res,next)=>{
   router.get ("/sin-gluten", (req, res, next) => {
     RecetaModel.find({tipo:"Sin-gluten"})
       .then((tipoDulce) => {
-          console.log(tipoDulce)
+
           res.render("recetas/tipos-recetas.hbs", {tipoDulce})
       })
       .catch((error) => {
