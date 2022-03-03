@@ -1,14 +1,38 @@
 <div class="lista-recetas">
-
 <div>
     <h2>{{recetaDetalle.nombre}}</h2>
 </div>
+<div class="comienzo-receta">
+
 <div class="tipo-receta">
-      <img src="{{recetaDetalle.imagen}}" alt="PATATA" >
+    <div class="img-info">
+    <div class="imagen-receta">
+    <img src="{{recetaDetalle.imagen}}" alt="PATATA" >
+    </div>
+    <div class="info-basica">
+    <p>Tipo:
+    <a href="/recetario/{{recetaDetalle.tipo}}">{{recetaDetalle.tipo}}</a>
+    </p>
     <p>Dificultad: {{recetaDetalle.dificultad}}</p>
     <p>Duración: {{recetaDetalle.duracion}}</p>
     <p>Autor: {{recetaDetalle.autor.username}}</p>
-    <a href="/recetario/{{recetaDetalle.tipo}}"><p>{{recetaDetalle.tipo}}</p></a>
+   
+    </div>
+    </div>
+
+    <div class="ingredientes">
+    <h4>Ingredientes</h4>
+    <ul>
+        {{#each recetaDetalle.ingredientes}} 
+        <li>
+            {{this}}
+        </li>
+        {{/each}}
+    </ul>
+    </div>
+
+</div>
+
 </div>
     {{#if isLoggedIn}}
     <div class="info-container">
@@ -23,21 +47,17 @@
                 {{/each}}
             </ul>
         </div>
-    <div class="ingredientes">
-    <h4>Ingredientes</h4>
-    <ul>
-        {{#each recetaDetalle}} 
-        {{this.ingredientes}}
-        {{/each}}
-    </ul>
-    </div>
 
+    
     </div>
+    <br>
  {{!-- BOUNUS=> COMENTARIOS  --}}
     {{#each comentarios}}
-    <div>
-        <h6>{{this.autor.username}}</h6>
+    <div class="coment-container">
+        <div class="coment-info">
+        <h5>{{this.autor.username}}</h5>
         <p>{{dateToString this.fecha}}</p>
+        </div>
         <div>
             <p>{{this.comentario}}</p>
         </div>
@@ -45,13 +65,12 @@
     {{/each}}
 
     <div>
-        <h6>Usuario</h6>
 
-            <div>
-                <form action="/recetario/{{recetaDetalle._id}}/detalles" method="POST">
-                <label for="comentario">Comentario</label>
+            <div class="coment-container">
+                <form class="coment-container" action="/recetario/{{recetaDetalle._id}}/detalles" method="POST">
+                <label for="comentario"></label>
                 <textarea rows= "15" name="comentario"> </textarea>
-                <button>Deja tu comentario</button>
+                <button class="btn-coment">Comenta!</button>
                 </form>
             </div>
        
@@ -63,8 +82,8 @@
 
     
 {{/if}}
-</v>
-
 </div>
+
+
 
 
