@@ -1,23 +1,29 @@
+<div class="lista-recetas">
 
 
 <h2>Actualiza tu receta!!!</h2>
 
 
-<div>
+<div class="img-info">
     <form method="POST" action="/perfil/{{recetaActualizarTodo._id}}/actualizartodo" >
     <label for="nombre">
     <input type="text" name="nombre" value="{{recetaActualizarTodo.nombre}}">
     </label>
-    <button>Actualizar</button>
     </form>
 </div>
 
+<div>
     <form method="POST" action="/perfil/{{recetaActualizarTodo._id}}/actualizartodo" enctype="multipart/form-data">
+    <div>
+    <img src="{{recetaActualizarTodo.imagen}}" alt="PATATA" >
+    </div>
+    <div>
     <label for="receta-img">
-        <img src="{{recetaActualizarTodo.imagen}}" alt="PATATA" >
         <input type="file" name="receta-img">
     </label>
+    </div>
     </form>
+</div>
 
 <div>
     <form method="POST" action="/perfil/{{recetaActualizarTodo._id}}/actualizartodo">
@@ -42,22 +48,25 @@
         <option value="{{recetaActualizarTodo.tipo}}">Sin Gluten</option>
     
     </select>
+    </div>
 
     
-        <div>
-            <h4>Pasos</h4>
+        <div id="pasos-actualizartodo">
+            <h4>Actualiza tus pasos:</h4>
            
                 {{#each recetaActualizarTodo.pasos}}
                 <label for="pasos">
-                    <input type="text" name="numero" value="{{this.numero}}">:
+                    <input type="text" name="numero" value="{{this.numero}}">
                     <textarea name="descripcion" >{{this.descripcion}}</textarea>
                 </label>
                 {{/each}}
            
         </div>
-    </div>
-<div>
+<div id="ingredientes-actualizartodo">
+    <div>
     <h4>Ingredientes</h4>
+    </div>
+    <div>
     <ul>
         {{#each recetaActualizarTodo.ingredientes}}
         <li>
@@ -67,9 +76,10 @@
         </li> 
         {{/each}}
     </ul>
+    </div>
 
      {{!-- <a href="/recetario/{{recetaActualizarTodo._id}}/detalles"><button>Actualizar!!</button></a>  --}}
-     <a href="/perfil/{{recetaActualizarTodo._id}}/actualizartodo"><button>Actualizar!!</button></a> 
+     <a href="/perfil/{{recetaActualizarTodo._id}}/actualizartodo"><button class="crea-btn">Actualizar!!</button></a> 
     </form>
 
 {{! BOUNUS=> COMENTARIOS 
@@ -83,3 +93,4 @@
 }}
 </div>
 
+</div>
