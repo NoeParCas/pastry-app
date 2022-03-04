@@ -16,8 +16,4 @@ router.use("/perfil", perfilRoutes);
 const recetarioRoutes = require("./recetario.routes")
 router.use("/recetario", recetarioRoutes)
 
-
-
-
-
 module.exports = router;

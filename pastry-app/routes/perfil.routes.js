@@ -6,20 +6,22 @@ const uploader = require("../middleware/uploader");
 const { findByIdAndDelete } = require("../models/User.model");
 
 router.get("/", isLoggedIn, (req, res, next) => {
-  
-     const name = req.session.user.username
-    
-     RecetaModel.find({autor: req.session.user._id})
-  .then((recetas) =>{
-     res.render("perfil/perfil-usuario.hbs", {recetas, name}); //
-  })
+  const name = req.session.user.username;
+
+  RecetaModel.find({ autor: req.session.user._id }).then((recetas) => {
+    res.render("perfil/perfil-usuario.hbs", { recetas, name }); //
+  });
 });
 
 router.get("/crear-receta", isLoggedIn, (req, res, next) => {
   res.render("recetas/crear-receta.hbs");
 });
 
-router.post("/crear-receta", isLoggedIn,uploader.single("receta-img"),(req, res, next) => {
+router.post(
+  "/crear-receta",
+  isLoggedIn,
+  uploader.single("receta-img"),
+  (req, res, next) => {
     const { nombre, creacion, tipo, dificultad, duracion } = req.body;
     const autor = req.session.user._id;
     console.log(tipo);
@@ -35,7 +37,6 @@ router.post("/crear-receta", isLoggedIn,uploader.single("receta-img"),(req, res,
     })
 
       .then((crearReceta) => {
-        
         res.redirect(`/perfil/${crearReceta._id}/actualizar`);
       })
       .catch((err) => {
@@ -46,8 +47,6 @@ router.post("/crear-receta", isLoggedIn,uploader.single("receta-img"),(req, res,
 
 router.get("/:id/actualizar", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
-  const { nombre, creacion, tipo, dificultad, duracion, autor, ingredientes } =
-    req.body;
 
   RecetaModel.findById(id)
     .then((recetaActualizar) => {
@@ -81,7 +80,6 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
 
   // si el numero de paso existe
   let foundPaso = recipe.pasos.find((eachPaso) => {
-    
     return eachPaso.numero == numero;
   });
   if (foundPaso) {
@@ -112,87 +110,93 @@ router.post("/:id/actualizar/pasos", isLoggedIn, async (req, res, next) => {
   res.redirect(`/perfil/${id}/actualizar`);
 });
 
-//!revisar qué sería buena practica .post o .delete
-router.post("/:id/delete", isLoggedIn, async (req, res,  next)=>{
 
-  try{
-    
-      const {id} = req.params
-     
-      await RecetaModel.findByIdAndDelete(id)
-      res.redirect("/perfil")
+router.post("/:id/delete", isLoggedIn, async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    await RecetaModel.findByIdAndDelete(id);
+    res.redirect("/perfil");
+  } catch (err) {
+    next(err);
   }
-  catch(err){
-    next(err)
-  }
-}), 
+}),
+  router.get("/:id/actualizartodo", isLoggedIn, async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const recetaActualizarTodo = await RecetaModel.findById(id);
+      res.render("recetas/actualizar-todo.hbs", { recetaActualizarTodo });
+    } catch (err) {
+      next(err);
+    }
+  });
 
-router.get("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
+router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next) => {
+  try {
+    const {
+      nombre,
+      imagen,
+      creacion,
+      tipo,
+      dificultad,
+      duracion,
+      pasos,
+      descripcion,
+      numero,
+      ingredientes,
+    } = req.body;
+    const { id } = req.params;
 
-     try{
-          console.log("OK")
-          const{id} = req.params
-          const recetaActualizarTodo = await RecetaModel.findById(id)
-          res.render("recetas/actualizar-todo.hbs", {recetaActualizarTodo})
-     }
-     catch(err) {
-          next(err)
-     }
-})
+    // Si  hay más de un paso => entonces bucle
+    if (numero.length > 1) {
+      //iteramos por la array que nos llega del input "name: numero"
+      for (let i = 0; i < numero.length; i++) {
+        await RecetaModel.findOneAndUpdate(
+          {
+            _id: id,
 
-router.post("/:id/actualizartodo", isLoggedIn, async (req, res, next)=>{
-     
-     try{
-         
-          const { nombre,imagen, creacion, tipo, dificultad, duracion, pasos, descripcion, numero,  ingredientes } = req.body;
-          const{id} = req.params
-          
-         // Si  hay más de un paso => entonces bucle 
-          if (numero.length> 1){
-           //iteramos por la array que nos llega del input "name: numero"
-            for(let i = 0; i < numero.length; i++){
-              
-              await RecetaModel.findOneAndUpdate(
-                {
-                  _id: id,
-
-                  //accedo a la propiedad
-                  "pasos.numero": numero[i],
-                },
-                {
-                  $set: {
-                    //Con el símbolo ($) indico la propiedad a la que he accedido.
-                                            // Después modifico  
-                    "pasos.$.descripcion": descripcion[i],
-                  },
-                }
-              );
-            }
-            // Si  hay un paso => entonces actualiza directamente
-          } else {
-            await RecetaModel.findOneAndUpdate(
-              {
-                _id: id,
-                "pasos.numero": numero,
-              },
-              {
-                $set: {
-                  "pasos.$.descripcion": descripcion,
-                },
-              }
-            );
+            //accedo a la propiedad
+            "pasos.numero": numero[i],
+          },
+          {
+            $set: {
+              //Con el símbolo ($) indico la propiedad a la que he accedido.
+              // Después modifico
+              "pasos.$.descripcion": descripcion[i],
+            },
           }
-        
-          //actualizar la receta 
+        );
+      }
+      // Si  hay un paso => entonces actualiza directamente
+    } else {
+      await RecetaModel.findOneAndUpdate(
+        {
+          _id: id,
+          "pasos.numero": numero,
+        },
+        {
+          $set: {
+            "pasos.$.descripcion": descripcion,
+          },
+        }
+      );
+    }
 
-          await RecetaModel.findByIdAndUpdate(id,{ nombre, imagen, creacion, tipo, dificultad, duracion,
-            ingredientes, 
-          })
-          res.redirect(`/recetario/${id}/detalles`)
-     }
-     catch(err) {
-          next(err)
-     }
-})
+    //actualizar la receta
+
+    await RecetaModel.findByIdAndUpdate(id, {
+      nombre,
+      imagen,
+      creacion,
+      tipo,
+      dificultad,
+      duracion,
+      ingredientes,
+    });
+    res.redirect(`/recetario/${id}/detalles`);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

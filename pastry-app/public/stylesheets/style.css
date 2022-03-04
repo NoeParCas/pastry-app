@@ -13,7 +13,7 @@ body {
 }
 
  a {
-  color: #00b7ff;
+  color: rgb(97, 127, 156) ;
 }
 
 h1 {
@@ -344,7 +344,7 @@ a{
   text-align: center;
   background-color: rgba(255, 255, 255, 0.632);
   height: 20px;
-  padding-left: 10px;
+  padding: 5px;
   border-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -549,4 +549,5 @@ a{
   border-style: none;
   border-radius: 5px;
   margin-bottom: 10px;
+  text-align: center;
 }

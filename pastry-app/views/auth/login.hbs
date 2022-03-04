@@ -3,7 +3,6 @@
    <div id="login-container">
       <h2>Pastry</h2>
       
-      
       <form action="/auth/login" method="POST">
 
          <label class="signup-label">
@@ -12,7 +11,7 @@
 
          <br>
          <label class="signup-label"> 
-            <input type="text" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password">
          </label>
          {{#if errorMessage}}
             <div class="error-message">
@@ -20,7 +19,7 @@
       </div>
       {{/if}}
       <br>
-         <button type="submit" class="btn-inicio">Submit</button>
+         <button type="submit" class="btn-inicio">Acceder</button>
       </form>
    </div>
 

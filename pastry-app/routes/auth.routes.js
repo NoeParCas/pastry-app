@@ -86,7 +86,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         }
         return res
           .status(500)
-          .render("auth/signup", { errorMessage: error.message });
+          .render("auth/signup", {errorMessage: error.message });
       });
   });
 });
@@ -108,7 +108,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // - either length based parameters or we check the strength of a password
   if (password.length < 8) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Tu contraseña tiene que tener al menos 8 caracteres."
     });
   }
 
@@ -118,7 +118,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       // If the user isn't found, send the message that user provided wrong credentials
       if (!user) {
         return res.status(400).render("auth/login", {
-          errorMessage: "Wrong credentials.",
+          errorMessage: "Usuario no existente.",
         });
       }
 
@@ -126,12 +126,12 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       bcrypt.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res.status(400).render("auth/login", {
-            errorMessage: "Wrong credentials.",
+            errorMessage: "Contraseña incorrecta.",
           });
         }
+
         req.session.user = user;
         req.app.locals.isLoggedIn =true;
-        console.log("HOLA")
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         
         return res.redirect("/perfil");
