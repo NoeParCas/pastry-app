@@ -339,14 +339,16 @@ a{
 }
 
 .coment-usuario{
-  display:flex;
+  display: flex;
   align-items: center;
-  text-align: center;
+  text-align: flex-start;
   background-color: rgba(255, 255, 255, 0.632);
-  height: 20px;
+  height: auto;
   padding: 5px;
   border-bottom: 5px;
   margin-bottom: 20px;
+  padding: 0;
+  padding-left: 10px;
 }
 .coment-container textarea{
   width: 766.28px;
