@@ -1,16 +1,16 @@
-README: 
-## PASTRY APP. 
+
+## PASTRY APP
 
 Description:
 
 This app is for all pastry lovers! As an user you can read,  create, eliminate and comment all the recipes. 
 Share your sweet, healthy and gluten free pastry recipes! 
-# Functionalities: 
+# Functionalities
 
 From your user profile you have all CRUD actions.
 You can read and comment recipes. 
 
-# Tech: 
+# Tech
 MongoDB,  handlebars, JavaScript, mongoose, morgan, express, cloudinary, bcrypt and IronLauncher API.
 
 # User stories
@@ -24,7 +24,7 @@ MongoDB,  handlebars, JavaScript, mongoose, morgan, express, cloudinary, bcrypt 
 - recetario - As a user and as an anon is possible to see what kind of recipes are in the platform.
 - receta - As an anon you can only see the picture and the ingredients of the recipe,  you will find a message that invites you to join the Pastry community ( login of signup ) for reading the full recipe. As a user you have full access.
 
-# API routes(back-end): 
+# API routes(back-end)
 
 GET /
   render home.hbs
@@ -124,7 +124,7 @@ POST/recetario/:id/detalles
     autor,
     receta,
 
-# models
+# Models
 
 USER MODEL
 
