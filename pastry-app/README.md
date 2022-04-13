@@ -27,39 +27,52 @@ MongoDB,  handlebars, JavaScript, mongoose, morgan, express, cloudinary, bcrypt 
 # API routes(back-end)
 
 GET /
+
   render home.hbs
   
 GET/auth/signup 
+
   render singup.hbs
 
-POST/auth/signup 
+POST/auth/signup
+
   redirect /perfil
+
   body: 
     email
     username
     password
 
 GET/auth/login 
+
   render login.hbs
 
 POST/auth/login 
+
   redirect /perfil
-   body:
+
+  body:
     username
     password
 
 POST/auth/logout 
+
   redirect / (homepage)
+
   body:  empty
 
 GET/perfil
+
   render perfil-usuario.hbs
 
 GET/perfil/crear-receta
+
   render recetas/crear-receta.hbs
 
 POST/perfil/crear-receta
+
   redirect /perfil/:id/actualizar 
+
   body:  
     nombre,
     creacion,
@@ -70,29 +83,39 @@ POST/perfil/crear-receta
     autor,
 
 GET/perfil/:id/actualizar
+
   render recetas/actualizar-receta.hbs
 
 POST/perfil/:id/actualizar/ingredientes
+
   redirect /perfil/:id/actualizar
+
   body:
     ingredientes
 
 POST/perfil/:id/actualizar/pasos
+
   redirect /perfil/:id/actualizar
+
   body: 
     numero
     descripcion
 
 POST/perfil/:id/delete
+
   redirect /perfil
+
   body:
     id
 
 GET/perfil/:id/actualizartodo
+
   render recetas/actualizar-todo.hbs
 
 POST/perfil/:id/actualizartodo
+
   redirect /recetario/:id/detalles
+
   body:
     nombre,
     imagen,
@@ -103,22 +126,29 @@ POST/perfil/:id/actualizartodo
     ingredientes,
 
 GET/recetario
+
   render recetas/recetario.hbs
 
 GET/recetario/dulce
+
   render recetas/tipos-recetas.hbs
 
 GET/recetario/sin-gluten
+
   render recetas/tipos-recetas.hbs
 
 GET/recetario/saludable
+
   render recetas/tipos-recetas.hbs
 
 GET/recetario/:id/detalles
+
   render recetas/receta
 
 POST/recetario/:id/detalles
+
   redirect /recetario/:id/detalles
+  
   body:
     comentario,
     autor,
