@@ -24,7 +24,6 @@ router.post(
   (req, res, next) => {
     const { nombre, creacion, tipo, dificultad, duracion } = req.body;
     const autor = req.session.user._id;
-    console.log(tipo);
     //APUNTAR RELACION AUTOR CON ID DE USUARIO
     RecetaModel.create({
       nombre,
