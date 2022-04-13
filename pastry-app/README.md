@@ -94,13 +94,13 @@ GET/perfil/:id/actualizartodo
 POST/perfil/:id/actualizartodo
   redirect /recetario/:id/detalles
   body:
-      nombre,
-      imagen,
-      creacion,
-      tipo,
-      dificultad,
-      duracion,
-      ingredientes,
+    nombre,
+    imagen,
+    creacion,
+    tipo,
+    dificultad,
+    duracion,
+    ingredientes,
 
 GET/recetario
   render recetas/recetario.hbs
@@ -133,15 +133,18 @@ username{
   unique: true, 
   required: true,
 }
+
 password: {
-      type: String,
-      required: true, 
+    type: String,
+    required: true, 
     }, 
+
 email: {
-      type: String,
-      unique: true, 
-      required: true,
+    type: String,
+    unique: true, 
+    required: true,
     }, 
+
 timestamps: true,
 
 RECIPE MODEL
@@ -173,7 +176,7 @@ nombre: {
 
   imagen: {
     type: String,
-   required: true, 
+    required: true, 
   },
 
   autor: {
@@ -182,7 +185,10 @@ nombre: {
   },
 
   pasos: [
-    {numero: {type: Number}, descripcion:{type: String}},
+    {
+    numero: {type: Number}, 
+    descripcion:{type: String}
+    },
   ],
 
   ingredientes: [{type: String}],
@@ -190,23 +196,23 @@ nombre: {
   COMENTARIO MODEL
 
   comentario: {
-        type: String,
+    type: String,
     },
    
-    receta: {
-        type: Schema.Types.ObjectId,
-        ref: "Receta",
-      },
+  receta: {
+    type: Schema.Types.ObjectId,
+    ref: "Receta",
+    },
 
-    autor: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
+  autor: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    },
     
-    fecha: {
-        type: Date,
-        default: Date.now,
-      },
+  fecha: {
+    type: Date,
+    default: Date.now,
+    },
 
 # Git 
 https://github.com/NoeParCas/pastry-app
