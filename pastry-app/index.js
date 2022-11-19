@@ -30,9 +30,6 @@ hbs.registerHelper("dateToString", (date)=>{
     return date.toDateString()
 })
 
-
-
-
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);
